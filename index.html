@@ -1,0 +1,1796 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>寻剧吧 - 官网_剧集内容社区与原创影像平台</title>
+<meta name="description" content="寻剧吧官方网站，专注剧集内容与原创影像的社区平台，聚合专业创作者、剧评人与追剧爱好者的真实力量，持续运营高品质内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1724'/%3E%3Cpath d='M24 18l22 14-22 14z' fill='%23ff5a5f'/%3E%3C/svg%3E">
+<style>
+:root{
+  --xjb-ink:#0f1724;
+  --xhb-deep:#131c2c;
+  --xjb-accent:#ff5a5f;
+  --xjb-accent-soft:#ffe9ea;
+  --xjb-gold:#f2b544;
+  --xjb-mist:#f4f6fa;
+  --xjb-line:#e2e7ef;
+  --xjb-text:#28313f;
+  --xjb-sub:#6a7688;
+  --xjb-radius:16px;
+  --xjb-shadow:0 10px 30px rgba(15,23,36,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color:var(--xjb-text);
+  background:#fff;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.35;color:var(--xjb-ink)}
+p{margin:0 0 1em}
+ul{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.xjb-wrap{width:min(1180px,92vw);margin:0 auto}
+
+/* ============ 吸顶区 ============ */
+.xjb-sticky{position:sticky;top:0;z-index:120}
+.xjb-announce{
+  background:linear-gradient(90deg,#0f1724,#243350 60%,#0f1724);
+  color:#dfe6f2;font-size:13px;letter-spacing:.2px;
+}
+.xjb-announce-inner{
+  display:flex;align-items:center;gap:14px;
+  padding:9px 0;overflow:hidden;
+}
+.xjb-announce-tag{
+  flex:none;background:var(--xjb-accent);color:#fff;font-size:11px;
+  padding:2px 9px;border-radius:99px;font-weight:700;letter-spacing:1px;
+}
+.xjb-announce-track{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#c9d3e4}
+.xjb-announce-track b{color:#fff;font-weight:600}
+.xjb-announce-more{flex:none;color:var(--xjb-gold);font-size:12px}
+.xjb-announce-more:hover{text-decoration:underline}
+
+.xjb-header{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--xjb-line);
+}
+.xjb-header-inner{
+  display:flex;align-items:center;gap:26px;
+  padding:13px 0;
+}
+.xjb-brand{display:flex;align-items:center;gap:10px;flex:none}
+.xjb-brand-mark{
+  width:38px;height:38px;border-radius:11px;background:var(--xjb-ink);
+  display:grid;place-items:center;
+}
+.xjb-brand-mark svg{width:18px;height:18px}
+.xjb-brand-name{font-size:20px;font-weight:800;letter-spacing:1px;color:var(--xjb-ink)}
+.xjb-brand-name span{color:var(--xjb-accent)}
+.xjb-brand-sub{display:block;font-size:10px;color:var(--xjb-sub);letter-spacing:2px;font-weight:500}
+
+.xjb-nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+.xjb-nav a{
+  padding:7px 12px;border-radius:9px;font-size:14.5px;color:var(--xjb-text);
+  transition:background .2s,color .2s;
+}
+.xjb-nav a:hover,.xjb-nav a.is-active{background:var(--xjb-accent-soft);color:var(--xjb-accent);font-weight:600}
+
+.xjb-search{position:relative;flex:none;width:230px}
+.xjb-search input{
+  width:100%;padding:9px 38px 9px 14px;border:1px solid var(--xjb-line);
+  border-radius:99px;font-size:13.5px;background:var(--xjb-mist);outline:none;
+  transition:border-color .2s,background .2s;
+}
+.xjb-search input:focus{border-color:var(--xjb-accent);background:#fff}
+.xjb-search button{
+  position:absolute;right:5px;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  background:var(--xjb-accent);color:#fff;
+}
+.xjb-search button svg{width:14px;height:14px}
+.xjb-search-hint{
+  position:absolute;top:44px;left:0;right:0;background:#fff;border:1px solid var(--xjb-line);
+  border-radius:12px;box-shadow:var(--xjb-shadow);padding:8px;display:none;z-index:50;font-size:13px;
+}
+.xjb-search-hint.is-open{display:block}
+.xjb-search-hint button{display:block;width:100%;text-align:left;padding:6px 10px;border-radius:8px;background:none;color:var(--xjb-text);position:static;transform:none;height:auto;font-size:13px}
+.xjb-search-hint button:hover{background:var(--xjb-accent-soft);color:var(--xjb-accent)}
+.xjb-search-hint em{color:var(--xjb-sub);font-style:normal;font-size:12px}
+
+.xjb-burger{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--xjb-line);place-items:center}
+.xjb-burger span{display:block;width:18px;height:2px;background:var(--xjb-ink);margin:3px 0;border-radius:2px}
+
+/* ============ 首屏 ============ */
+.xjb-hero{
+  position:relative;background:
+    radial-gradient(1100px 480px at 12% -10%,rgba(255,90,95,.16),transparent 60%),
+    radial-gradient(900px 420px at 96% 0%,rgba(242,181,68,.18),transparent 62%),
+    var(--xjb-mist);
+  padding:52px 0 60px;overflow:hidden;
+}
+.xjb-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.xjb-kicker{
+  display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--xjb-line);
+  border-radius:99px;padding:5px 14px 5px 6px;font-size:12.5px;color:var(--xjb-sub);font-weight:600;
+}
+.xjb-kicker i{width:20px;height:20px;border-radius:50%;background:var(--xjb-accent);display:grid;place-items:center}
+.xjb-kicker i svg{width:9px;height:9px}
+.xjb-hero h1{
+  font-size:clamp(38px,5.6vw,64px);font-weight:900;letter-spacing:2px;margin:18px 0 6px;
+}
+.xjb-hero h1 em{font-style:normal;color:var(--xjb-accent)}
+.xjb-hero-tagline{font-size:17px;color:var(--xjb-ink);font-weight:700;letter-spacing:1px}
+.xjb-hero-desc{font-size:14.8px;color:var(--xjb-sub);max-width:520px;margin:14px 0 22px}
+.xjb-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.xjb-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;
+  font-size:14.5px;font-weight:700;transition:transform .18s,box-shadow .18s,background .18s;
+}
+.xjb-btn svg{width:15px;height:15px}
+.xjb-btn-primary{background:var(--xjb-accent);color:#fff;box-shadow:0 8px 22px rgba(255,90,95,.32)}
+.xjb-btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,90,95,.4)}
+.xjb-btn-ghost{background:#fff;border:1px solid var(--xjb-line);color:var(--xjb-ink)}
+.xjb-btn-ghost:hover{border-color:var(--xjb-accent);color:var(--xjb-accent);transform:translateY(-2px)}
+.xjb-hero-stats{display:flex;gap:30px;margin-top:28px;flex-wrap:wrap}
+.xjb-stat b{display:block;font-size:26px;font-weight:900;color:var(--xjb-ink);letter-spacing:.5px}
+.xjb-stat b i{font-style:normal;color:var(--xjb-accent);font-size:15px;font-weight:800}
+.xjb-stat span{font-size:12.5px;color:var(--xjb-sub);letter-spacing:.5px}
+
+.xjb-hero-visual{position:relative}
+.xjb-hero-main{
+  border-radius:22px;overflow:hidden;box-shadow:0 26px 60px rgba(15,23,36,.22);
+  transform:rotate(-1.2deg);background:#000;
+}
+.xjb-hero-main svg{width:100%;height:auto;display:block}
+.xjb-hero-float{
+  position:absolute;right:-8px;bottom:-22px;background:#fff;border-radius:14px;
+  box-shadow:var(--xjb-shadow);padding:10px 14px;display:flex;align-items:center;gap:10px;
+  font-size:12.5px;font-weight:700;color:var(--xjb-ink);
+}
+.xjb-hero-float i{width:26px;height:26px;border-radius:8px;background:var(--xjb-gold);display:grid;place-items:center}
+.xjb-hero-float i svg{width:12px;height:12px}
+.xjb-hero-badge{
+  position:absolute;left:-16px;top:-16px;background:var(--xjb-ink);color:#fff;
+  border-radius:12px;padding:8px 13px;font-size:12px;font-weight:700;letter-spacing:1px;
+  box-shadow:0 10px 24px rgba(15,23,36,.28);
+}
+.xjb-hero-badge b{color:var(--xjb-gold)}
+
+/* ============ 通用 section ============ */
+.xjb-section{padding:64px 0}
+.xjb-section-alt{background:var(--xjb-mist)}
+.xjb-sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+.xjb-sec-eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;color:var(--xjb-accent);text-transform:uppercase}
+.xjb-sec-head h2{font-size:clamp(23px,3vw,31px);font-weight:900;letter-spacing:1px;margin-top:6px}
+.xjb-sec-head p{font-size:13.5px;color:var(--xjb-sub);margin:8px 0 0;max-width:620px}
+.xjb-sec-link{font-size:13.5px;font-weight:700;color:var(--xjb-accent);white-space:nowrap}
+.xjb-sec-link:hover{text-decoration:underline}
+
+/* ============ 品牌深度解析长文 ============ */
+.xjb-about{padding:70px 0}
+.xjb-about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:start}
+.xjb-about-panel{
+  background:linear-gradient(160deg,var(--xjb-ink),#22304a 70%);
+  color:#dfe6f2;border-radius:20px;padding:30px;position:relative;overflow:hidden;
+}
+.xjb-about-panel::after{
+  content:"";position:absolute;right:-60px;bottom:-60px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,90,95,.4),transparent 70%);
+}
+.xjb-about-panel h3{color:#fff;font-size:20px;margin-bottom:12px}
+.xjb-about-panel p{font-size:13.8px;color:#bcc8db;margin-bottom:14px}
+.xjb-about-list li{display:flex;gap:10px;font-size:13.5px;color:#cfd9e8;margin-bottom:10px;align-items:flex-start}
+.xjb-about-list i{width:18px;height:18px;flex:none;border-radius:50%;background:var(--xjb-accent);color:#fff;display:grid;place-items:center;font-size:10px;font-style:normal;font-weight:800;margin-top:3px}
+.xjb-about-text h2{font-size:clamp(22px,2.8vw,29px);margin-bottom:16px}
+.xjb-about-text p{font-size:14.6px;color:var(--xjb-sub);text-align:justify}
+.xjb-about-text p strong{color:var(--xjb-ink)}
+.xjb-about-quote{
+  border-left:3px solid var(--xjb-accent);background:var(--xjb-accent-soft);
+  padding:14px 18px;border-radius:0 12px 12px 0;font-size:14px;color:var(--xjb-ink);
+  font-weight:600;margin:18px 0;
+}
+
+/* ============ 焦点视频 ============ */
+.xjb-focus-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px}
+.xjb-focus-main{
+  border-radius:18px;overflow:hidden;position:relative;background:#000;box-shadow:var(--xjb-shadow);
+  transition:transform .22s;
+}
+.xjb-focus-main:hover{transform:translateY(-3px)}
+.xjb-cover{position:relative;display:block;overflow:hidden;background:#0d1420}
+.xjb-cover svg{width:100%;height:auto;display:block}
+.xjb-cover-ratio{position:relative;padding-bottom:56.25%}
+.xjb-cover-ratio svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.xjb-cover-mark{
+  position:absolute;left:12px;top:12px;background:rgba(15,23,36,.82);color:#fff;
+  font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;letter-spacing:.5px;
+}
+.xjb-cover-play{
+  position:absolute;inset:0;display:grid;place-items:center;opacity:.9;transition:opacity .2s;
+}
+.xjb-cover-play span{
+  width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);
+  display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+.xjb-cover-play span svg{width:18px;height:18px;margin-left:3px}
+.xjb-cover:hover .xjb-cover-play{opacity:1}
+.xjb-cover-dur{
+  position:absolute;right:12px;bottom:12px;background:rgba(15,23,36,.82);color:#fff;
+  font-size:11px;padding:2px 8px;border-radius:6px;font-weight:600;
+}
+.xjb-focus-body{padding:18px 20px 20px}
+.xjb-focus-body h3{font-size:19px;margin-bottom:8px}
+.xjb-focus-body p{font-size:13.6px;color:var(--xjb-sub);margin-bottom:12px}
+.xjb-meta{display:flex;align-items:center;gap:12px;font-size:12.2px;color:var(--xjb-sub);flex-wrap:wrap}
+.xjb-meta b{color:var(--xjb-ink);font-weight:600}
+.xjb-focus-side{display:grid;gap:14px;align-content:start}
+.xjb-mini{
+  display:grid;grid-template-columns:112px 1fr;gap:12px;background:#fff;border:1px solid var(--xjb-line);
+  border-radius:14px;padding:10px;transition:box-shadow .2s,border-color .2s,transform .2s;
+}
+.xjb-mini:hover{box-shadow:var(--xjb-shadow);border-color:#f3c3c5;transform:translateY(-2px)}
+.xjb-mini .xjb-cover{border-radius:9px}
+.xjb-mini h4{font-size:13.6px;margin-bottom:4px;line-height:1.45}
+.xjb-mini span{font-size:11.5px;color:var(--xjb-sub)}
+
+/* ============ 热门视频流 ============ */
+.xjb-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.xjb-tab{
+  padding:7px 16px;border-radius:99px;border:1px solid var(--xjb-line);background:#fff;
+  font-size:13px;font-weight:600;color:var(--xjb-sub);transition:all .2s;
+}
+.xjb-tab:hover{border-color:var(--xjb-accent);color:var(--xjb-accent)}
+.xjb-tab.is-on{background:var(--xjb-ink);color:#fff;border-color:var(--xjb-ink)}
+.xjb-videos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.xjb-vcard{
+  background:#fff;border:1px solid var(--xjb-line);border-radius:16px;overflow:hidden;
+  transition:transform .22s,box-shadow .22s;display:flex;flex-direction:column;
+}
+.xjb-vcard:hover{transform:translateY(-4px);box-shadow:var(--xjb-shadow)}
+.xjb-vcard-body{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.xjb-vcard-body h3{font-size:15.5px;line-height:1.5;margin-bottom:6px}
+.xjb-vcard-body p{font-size:12.8px;color:var(--xjb-sub);margin-bottom:10px;flex:1}
+.xjb-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.xjb-tag{font-size:11px;color:var(--xjb-accent);background:var(--xjb-accent-soft);padding:2px 8px;border-radius:6px;font-weight:600}
+.xjb-tag-x{color:#2c6c8f;background:#e6f2f8}
+.xjb-tag-y{color:#8a6412;background:#fdf3dc}
+.xjb-vcard-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px dashed var(--xjb-line)}
+.xjb-author{display:flex;align-items:center;gap:7px;font-size:12.2px;color:var(--xjb-sub);min-width:0}
+.xjb-avatar{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;flex:none}
+.xjb-avatar-lg{width:52px;height:52px;font-size:18px;border-radius:16px}
+.xjb-avatar-xl{width:66px;height:66px;font-size:23px;border-radius:20px}
+.xjb-av-a{background:linear-gradient(135deg,#ff5a5f,#c9317a)}
+.xjb-av-b{background:linear-gradient(135deg,#2c6c8f,#43a0c4)}
+.xjb-av-c{background:linear-gradient(135deg,#f2b544,#e07a2a)}
+.xjb-av-d{background:linear-gradient(135deg,#4c8a6b,#8bc09a)}
+.xjb-av-e{background:linear-gradient(135deg,#6d5bd0,#a48ce8)}
+.xjb-av-f{background:linear-gradient(135deg,#242f45,#5c6b86)}
+.xjb-actions{display:flex;gap:4px;flex:none}
+.xjb-icon-btn{
+  width:28px;height:28px;border-radius:8px;display:grid;place-items:center;color:var(--xjb-sub);
+  transition:background .18s,color .18s,transform .18s;
+}
+.xjb-icon-btn svg{width:15px;height:15px}
+.xjb-icon-btn:hover{background:var(--xjb-mist);color:var(--xjb-accent)}
+.xjb-icon-btn.is-like{color:var(--xjb-accent)}
+.xjb-icon-btn.is-like svg{fill:currentColor}
+.xjb-icon-btn.is-fav{color:var(--xjb-gold)}
+.xjb-icon-btn.is-fav svg{fill:currentColor}
+.xjb-icon-btn.pulse{animation:xjbPulse .35s ease}
+@keyframes xjbPulse{0%{transform:scale(1)}45%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+/* ============ 专题 ============ */
+.xjb-topics{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.xjb-topic{
+  border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--xjb-line);
+  transition:transform .2s,box-shadow .2s;
+}
+.xjb-topic:hover{transform:translateY(-3px);box-shadow:var(--xjb-shadow)}
+.xjb-topic-body{padding:15px 17px 17px}
+.xjb-topic-body h3{font-size:16px;margin-bottom:6px}
+.xjb-topic-body p{font-size:12.8px;color:var(--xjb-sub);margin-bottom:10px}
+.xjb-topic-state{display:flex;align-items:center;justify-content:space-between;font-size:11.8px;color:var(--xjb-sub)}
+.xjb-state-dot{display:inline-flex;align-items:center;gap:6px;color:#2c8a5e;font-weight:700}
+.xjb-state-dot i{width:7px;height:7px;border-radius:50%;background:#2c8a5e;display:inline-block;animation:xjbBlink 1.6s infinite}
+@keyframes xjbBlink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ============ 创作者 ============ */
+.xjb-creators{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.xjb-creator{
+  background:#fff;border:1px solid var(--xjb-line);border-radius:16px;padding:20px 18px;
+  text-align:center;transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.xjb-creator:hover{transform:translateY(-4px);box-shadow:var(--xjb-shadow);border-color:#f3c3c5}
+.xjb-creator .xjb-avatar{margin:0 auto 12px}
+.xjb-creator h3{font-size:15.5px;margin-bottom:4px}
+.xjb-creator-role{font-size:12px;color:var(--xjb-accent);font-weight:700;margin-bottom:8px}
+.xjb-creator p{font-size:12.4px;color:var(--xjb-sub);margin-bottom:12px;min-height:56px}
+.xjb-creator-nums{display:flex;justify-content:center;gap:14px;font-size:11.5px;color:var(--xjb-sub);border-top:1px dashed var(--xjb-line);padding-top:10px}
+.xjb-creator-nums b{display:block;font-size:14px;color:var(--xjb-ink)}
+.xjb-creator-more{margin-top:12px;width:100%;padding:7px;border-radius:9px;background:var(--xjb-mist);font-size:12.5px;font-weight:700;color:var(--xjb-ink);transition:background .2s,color .2s}
+.xjb-creator-more:hover{background:var(--xjb-accent);color:#fff}
+
+/* ============ 评论 ============ */
+.xjb-reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.xjb-review{
+  background:#fff;border:1px solid var(--xjb-line);border-radius:16px;padding:18px 20px;
+  display:flex;gap:13px;transition:border-color .2s,box-shadow .2s;position:relative;
+}
+.xjb-review:hover{border-color:#e9bfc1;box-shadow:var(--xjb-shadow)}
+.xjb-review-body{flex:1;min-width:0}
+.xjb-review-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:6px}
+.xjb-review-top b{font-size:13.4px}
+.xjb-review-star{font-size:11.5px;color:var(--xjb-gold);letter-spacing:1px}
+.xjb-review p{font-size:13.2px;color:var(--xjb-sub);margin:0}
+.xjb-review-when{font-size:11.5px;color:#98a2b3;margin-top:8px}
+
+/* ============ 作品墙 ============ */
+.xjb-wall{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.xjb-wall-item{border-radius:14px;overflow:hidden;position:relative;transition:transform .22s}
+.xjb-wall-item:hover{transform:translateY(-3px)}
+.xjb-wall-item .xjb-wall-cap{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;color:#fff;font-size:12px;
+  background:linear-gradient(transparent,rgba(8,12,20,.85));font-weight:600;line-height:1.4;
+}
+.xjb-w4{grid-column:span 4}
+.xjb-w3{grid-column:span 3}
+.xjb-w6{grid-column:span 6}
+.xjb-w2{grid-column:span 2}
+
+/* ============ 企业动态 ============ */
+.xjb-news{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.xjb-news-item{
+  background:#fff;border:1px solid var(--xjb-line);border-radius:14px;padding:18px 20px;
+  display:flex;gap:16px;transition:transform .2s,box-shadow .2s;
+}
+.xjb-news-item:hover{transform:translateX(3px);box-shadow:var(--xjb-shadow)}
+.xjb-news-date{
+  flex:none;width:64px;text-align:center;border-right:1px solid var(--xjb-line);
+  padding-right:14px;
+}
+.xjb-news-date b{display:block;font-size:21px;font-weight:900;color:var(--xjb-accent);line-height:1.1}
+.xjb-news-date span{font-size:11px;color:var(--xjb-sub);letter-spacing:1px}
+.xjb-news-item h3{font-size:14.6px;margin-bottom:4px}
+.xjb-news-item p{font-size:12.6px;color:var(--xjb-sub);margin:0}
+.xjb-news-mark{display:inline-block;font-size:10.5px;font-weight:800;color:#fff;background:var(--xjb-accent);padding:1px 7px;border-radius:5px;margin-right:6px;vertical-align:1px}
+
+/* ============ 合作 & FAQ ============ */
+.xjb-partners{display:flex;flex-wrap:wrap;gap:12px}
+.xjb-partner{
+  flex:1 1 160px;text-align:center;padding:18px 14px;border-radius:12px;background:#fff;
+  border:1px solid var(--xjb-line);font-size:13.5px;font-weight:700;color:var(--xjb-ink);
+  letter-spacing:.5px;transition:all .2s;
+}
+.xjb-partner small{display:block;font-size:11px;color:var(--xjb-sub);font-weight:500;margin-top:3px;letter-spacing:0}
+.xjb-partner:hover{border-color:var(--xjb-accent);color:var(--xjb-accent)}
+
+.xjb-faq{display:grid;gap:10px}
+.xjb-faq details{
+  background:#fff;border:1px solid var(--xjb-line);border-radius:12px;padding:0 18px;
+  transition:border-color .2s;
+}
+.xjb-faq details[open]{border-color:#f0c9cb}
+.xjb-faq summary{
+  list-style:none;cursor:pointer;padding:15px 0;font-size:14.2px;font-weight:700;color:var(--xjb-ink);
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.xjb-faq summary::-webkit-details-marker{display:none}
+.xjb-faq summary::after{content:"+";font-size:19px;color:var(--xjb-accent);font-weight:400;transition:transform .2s}
+.xjb-faq details[open] summary::after{transform:rotate(45deg)}
+.xjb-faq p{font-size:13.2px;color:var(--xjb-sub);margin:0 0 15px}
+
+/* ============ 联系 ============ */
+.xjb-contact{
+  background:linear-gradient(140deg,var(--xjb-ink),#23324d 65%,#2e2140);
+  border-radius:22px;color:#e4ebf5;padding:40px;display:grid;
+  grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;position:relative;overflow:hidden;
+}
+.xjb-contact::before{
+  content:"";position:absolute;left:-80px;top:-80px;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,90,95,.35),transparent 70%);
+}
+.xjb-contact h2{color:#fff;font-size:clamp(21px,2.7vw,28px);margin-bottom:12px}
+.xjb-contact p{font-size:13.8px;color:#b9c6da;margin-bottom:0}
+.xjb-contact-info{display:grid;gap:10px;position:relative}
+.xjb-ci{display:flex;gap:11px;align-items:flex-start;font-size:13.2px;color:#cfdaea}
+.xjb-ci i{width:24px;height:24px;flex:none;border-radius:8px;background:rgba(255,255,255,.1);display:grid;place-items:center}
+.xjb-ci i svg{width:12px;height:12px}
+.xjb-ci b{color:#fff;display:block;font-size:13.5px}
+.xjb-contact-form{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap}
+.xjb-contact-form input{
+  flex:1 1 200px;padding:11px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);color:#fff;font-size:13.2px;outline:none;
+}
+.xjb-contact-form input::placeholder{color:#8fa0b8}
+.xjb-contact-form input:focus{border-color:var(--xjb-accent)}
+.xjb-contact-form button{background:var(--xjb-accent);color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:13.2px}
+.xjb-contact-form button:active{transform:scale(.97)}
+
+/* ============ 页脚 ============ */
+.xjb-footer{background:#0b1220;color:#93a1b6;padding:52px 0 26px;font-size:13px}
+.xjb-footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:34px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08)}
+.xjb-footer h4{color:#fff;font-size:14px;margin-bottom:14px;letter-spacing:1px}
+.xjb-footer li{margin-bottom:8px}
+.xjb-footer a:hover{color:var(--xjb-accent)}
+.xjb-footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.xjb-footer-brand .xjb-brand-mark{background:#1a2439}
+.xjb-footer p{font-size:12.5px;line-height:1.8;color:#8b99ae}
+.xjb-footer-badge{
+  display:inline-block;margin-top:12px;font-size:11px;border:1px solid rgba(255,255,255,.16);
+  padding:3px 9px;border-radius:99px;color:#a9b7ca;margin-right:6px;
+}
+.xjb-footer-bottom{
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  padding-top:20px;font-size:12px;color:#7c8a9f;
+}
+
+/* ============ 弹窗 / Toast / 返回顶部 ============ */
+.xjb-modal-mask{
+  position:fixed;inset:0;background:rgba(9,14,23,.62);backdrop-filter:blur(3px);
+  display:none;place-items:center;z-index:300;padding:20px;
+}
+.xjb-modal-mask.is-open{display:grid}
+.xjb-modal{
+  width:min(520px,100%);background:#fff;border-radius:18px;padding:26px 26px 22px;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);animation:xjbPop .22s ease;
+}
+@keyframes xjbPop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.xjb-modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:12px}
+.xjb-modal-head h3{font-size:18px}
+.xjb-modal-close{width:30px;height:30px;border-radius:50%;background:var(--xjb-mist);display:grid;place-items:center;font-size:16px;color:var(--xjb-sub);flex:none}
+.xjb-modal-close:hover{background:var(--xjb-accent-soft);color:var(--xjb-accent)}
+.xjb-modal p{font-size:13.4px;color:var(--xjb-sub)}
+.xjb-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.xjb-share-row button{
+  flex:1 1 110px;padding:10px;border-radius:10px;background:var(--xjb-mist);
+  font-size:13px;font-weight:700;color:var(--xjb-ink);transition:background .2s,color .2s;
+}
+.xjb-share-row button:hover{background:var(--xjb-accent);color:#fff}
+.xjb-modal-field{width:100%;margin-top:6px;padding:10px 12px;border:1px solid var(--xjb-line);border-radius:10px;font-size:13.2px;font-family:inherit;resize:vertical;outline:none}
+.xjb-modal-field:focus{border-color:var(--xjb-accent)}
+.xjb-modal-submit{margin-top:14px;width:100%;padding:11px;border-radius:10px;background:var(--xjb-ink);color:#fff;font-weight:700;font-size:13.6px}
+.xjb-modal-submit:hover{background:var(--xjb-accent)}
+
+.xjb-toast{
+  position:fixed;left:50%;bottom:38px;transform:translate(-50%,20px);background:rgba(15,23,36,.94);
+  color:#fff;font-size:13.2px;padding:10px 20px;border-radius:99px;z-index:400;opacity:0;
+  pointer-events:none;transition:opacity .25s,transform .25s;box-shadow:0 12px 30px rgba(0,0,0,.3);
+}
+.xjb-toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+.xjb-top{
+  position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:50%;
+  background:var(--xjb-ink);color:#fff;display:grid;place-items:center;z-index:200;
+  opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s;
+  box-shadow:0 10px 26px rgba(15,23,36,.3);
+}
+.xjb-top.is-on{opacity:1;pointer-events:auto;transform:none}
+.xjb-top:hover{background:var(--xjb-accent)}
+.xjb-top svg{width:16px;height:16px}
+
+.xjb-highlight{box-shadow:0 0 0 3px rgba(255,90,95,.45);border-radius:16px;transition:box-shadow .3s}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  .xjb-hero-grid{grid-template-columns:1fr;gap:34px}
+  .xjb-focus-grid{grid-template-columns:1fr}
+  .xjb-videos{grid-template-columns:repeat(2,1fr)}
+  .xjb-topics{grid-template-columns:repeat(2,1fr)}
+  .xjb-creators{grid-template-columns:repeat(2,1fr)}
+  .xjb-about-grid{grid-template-columns:1fr}
+  .xjb-contact{grid-template-columns:1fr;padding:30px}
+  .xjb-footer-grid{grid-template-columns:1fr 1fr}
+  .xjb-search{width:100%;order:3;flex:1 1 100%;margin-top:10px}
+  .xjb-header-inner{flex-wrap:wrap;gap:14px}
+  .xjb-w4,.xjb-w6{grid-column:span 6}
+  .xjb-w3{grid-column:span 4}
+  .xjb-w2{grid-column:span 3}
+}
+@media (max-width:720px){
+  .xjb-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;background:#fff;
+    border-bottom:1px solid var(--xjb-line);box-shadow:0 16px 30px rgba(15,23,36,.1);
+    padding:10px 5vw;flex-direction:column;gap:2px;z-index:110;
+  }
+  .xjb-nav.is-open{display:flex}
+  .xjb-header-inner{position:relative}
+  .xjb-burger{display:grid;margin-left:auto}
+  .xjb-search{order:4}
+  .xjb-videos,.xjb-topics,.xjb-reviews,.xjb-news,.xjb-creators{grid-template-columns:1fr}
+  .xjb-about{padding:48px 0}
+  .xjb-section{padding:48px 0}
+  .xjb-hero{padding:34px 0 44px}
+  .xjb-focus-side{grid-template-columns:1fr}
+  .xjb-mini{grid-template-columns:96px 1fr}
+  .xjb-footer-grid{grid-template-columns:1fr}
+  .xjb-wall .xjb-w4,.xjb-wall .xjb-w6,.xjb-wall .xjb-w3,.xjb-wall .xjb-w2{grid-column:span 6}
+  .xjb-hero-float{right:0;bottom:-16px}
+  .xjb-contact-form input{flex:1 1 100%}
+  .xjb-announce-inner{gap:9px}
+  .xjb-announce-more{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="xjb-sticky">
+  <div class="xjb-announce">
+    <div class="xjb-wrap xjb-announce-inner">
+      <span class="xjb-announce-tag">官方发布</span>
+      <div class="xjb-announce-track">
+        <b>11月19日新增</b>「长剧拉片室」第 12 期上线 · <b>年代剧专题</b>征集开启报名 · 创作挑战「一镜到底」投稿通道已开放 · 剧评人认证计划开始招募
+      </div>
+      <a class="xjb-announce-more" href="#xjb-news">查看全部更新 →</a>
+    </div>
+  </div>
+
+  <header class="xjb-header">
+    <div class="xjb-wrap xjb-header-inner">
+      <a class="xjb-brand" href="#xjb-top">
+        <span class="xjb-brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5l12 7-12 7z" fill="#ff5a5f"/></svg>
+        </span>
+        <span>
+          <span class="xjb-brand-name">寻剧<span>吧</span></span>
+          <span class="xjb-brand-sub">XUNJUBA OFFICIAL</span>
+        </span>
+      </a>
+
+      <nav class="xjb-nav" id="xjbNav" aria-label="主导航">
+        <a href="#xjb-top" class="is-active">首页</a>
+        <a href="#xjb-focus">剧集焦点</a>
+        <a href="#xjb-hot">热门内容</a>
+        <a href="#xjb-topics">专题企划</a>
+        <a href="#xjb-creators">创作者</a>
+        <a href="#xjb-news">企业动态</a>
+        <a href="#xjb-help">帮助中心</a>
+        <a href="#xjb-contact">联系我们</a>
+      </nav>
+
+      <div class="xjb-search">
+        <input type="text" id="xjbSearchInput" placeholder="搜索剧集、剧评或创作者" autocomplete="off" aria-label="站内搜索">
+        <button type="button" id="xjbSearchBtn" aria-label="搜索">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        </button>
+        <div class="xjb-search-hint" id="xjbSearchHint"></div>
+      </div>
+
+      <button class="xjb-burger" id="xjbBurger" aria-label="展开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+</div>
+
+<main id="xjb-top">
+
+  <!-- 首屏 -->
+  <section class="xjb-hero">
+    <div class="xjb-wrap xjb-hero-grid">
+      <div>
+        <span class="xjb-kicker"><i><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5l12 7-12 7z" fill="#fff"/></svg></i>官方网站 · 品牌企业 · 持续运营</span>
+        <h1>寻剧<em>吧</em></h1>
+        <p class="xjb-hero-tagline">把一部剧看深，把一群人聚拢</p>
+        <p class="xjb-hero-desc">
+          寻剧吧是聚焦剧集内容与原创影像的社区平台。我们以专业拉片、真实剧评、创作者访谈为骨架，
+          为企业与创作者搭建高品质内容生态，让每一部值得重看的剧都被认真对待。
+        </p>
+        <div class="xjb-hero-actions">
+          <a class="xjb-btn xjb-btn-primary" href="#xjb-hot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="currentColor" stroke="none"/></svg>
+            进入内容社区
+          </a>
+          <a class="xjb-btn xjb-btn-ghost" href="#xjb-creators">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+            认识创作者
+          </a>
+        </div>
+        <div class="xjb-hero-stats">
+          <div class="xjb-stat"><b data-count="12800">0</b><span>累计影像条目</span></div>
+          <div class="xjb-stat"><b data-count="3260">0</b><span>认证创作者</span></div>
+          <div class="xjb-stat"><b data-count="960000">0</b><span>社区同好</span></div>
+        </div>
+      </div>
+
+      <div class="xjb-hero-visual">
+        <span class="xjb-hero-badge"><b>本周焦点</b> 长剧拉片室</span>
+        <div class="xjb-hero-main">
+          <svg viewBox="0 0 640 400" role="img" aria-label="寻剧吧官方主视觉：深色剧场光影中的胶片与剧幕">
+            <defs>
+              <linearGradient id="xjbHeroA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#12203a"/><stop offset=".55" stop-color="#25324f"/><stop offset="1" stop-color="#3a2039"/>
+              </linearGradient>
+              <linearGradient id="xjbHeroB" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#ff5a5f" stop-opacity=".9"/><stop offset="1" stop-color="#f2b544" stop-opacity=".85"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="400" fill="url(#xjbHeroA)"/>
+            <g opacity=".16" fill="#fff">
+              <rect x="30" y="40" width="90" height="320" rx="6"/>
+              <rect x="150" y="40" width="90" height="320" rx="6"/>
+              <rect x="400" y="40" width="90" height="320" rx="6"/>
+              <rect x="520" y="40" width="90" height="320" rx="6"/>
+            </g>
+            <circle cx="320" cy="176" r="76" fill="none" stroke="url(#xjbHeroB)" stroke-width="3" opacity=".9"/>
+            <circle cx="320" cy="176" r="58" fill="#0d1420" opacity=".55"/>
+            <path d="M302 146l58 30-58 30z" fill="#fff" opacity=".95"/>
+            <rect x="176" y="286" width="288" height="12" rx="6" fill="#fff" opacity=".22"/>
+            <rect x="232" y="310" width="176" height="9" rx="4.5" fill="#ff5a5f" opacity=".85"/>
+            <g fill="#f2b544">
+              <circle cx="88" cy="352" r="5"/><circle cx="124" cy="352" r="5"/><circle cx="160" cy="352" r="5"/>
+              <circle cx="470" cy="352" r="5"/><circle cx="506" cy="352" r="5"/><circle cx="542" cy="352" r="5"/>
+            </g>
+            <text x="320" y="378" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="15" fill="#c3cee0" letter-spacing="6">XUNJUBA ORIGINAL</text>
+          </svg>
+        </div>
+        <div class="xjb-hero-float">
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="#22190a" stroke-width="2.6" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/></svg></i>
+          本周新增 46 支原创剧评影像
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌深度解析 -->
+  <section class="xjb-about" id="xjb-about">
+    <div class="xjb-wrap">
+      <div class="xjb-about-grid">
+        <div class="xjb-about-panel">
+          <h3>寻剧吧 · 品牌档案</h3>
+          <p>从一支拉片视频出发，长成一个持续运营的剧集内容社区。我们相信好剧值得被反复拆解，也值得被温柔讲述。</p>
+          <ul class="xjb-about-list">
+            <li><i>1</i>深耕剧集垂直领域，专注长内容与深度评论</li>
+            <li><i>2</i>原创、正版、高清，是内容生态的三条底线</li>
+            <li><i>3</i>创作者与企业共建，形成良性循环的孵化机制</li>
+            <li><i>4</i>用户至上，评论区始终保持真实、理性、温暖</li>
+          </ul>
+          <p style="margin-bottom:0;color:#9fb0c8;font-size:12.6px">官方网站自 2019 年持续运营，累计服务超过 96 万剧集同好。</p>
+        </div>
+        <div class="xjb-about-text">
+          <div class="xjb-sec-eyebrow">About Xunjuba</div>
+          <h2>一个把“看剧”当正经事做的品牌</h2>
+          <p><strong>寻剧吧是什么？</strong>它不是又一个片单堆砌站，而是一个以剧集为圆心的内容社区与企业级影像平台。我们把“寻”放在名字最前面，是因为我们相信，每一部剧都需要被寻找、被解读、被重新发现；而“剧吧”二字，则像一间永远亮着灯的放映厅，任何人推门进来，都能找到一个愿意陪你把细节聊透的人。</p>
+          <p>作为国内剧集内容领域的原创品牌，寻剧吧官方网站围绕四条内容线展开：<strong>拉片解析、剧评长文、创作者访谈、幕后记录</strong>。我们不追求速度，只追求准确与克制。一集四十五分钟的剧，评论者可能要反复看三遍以上，把灯光的用意、剪辑的节奏、台词的留白逐帧拆开；一支八分钟的解说影像，团队常常要花两周时间校对细节。这种近乎执拗的投入，构成了寻剧吧最核心的<strong>品质</strong>标签。</p>
+          <div class="xjb-about-quote">“剧集是时代的备忘录。我们希望寻剧吧留下的，不只是播放记录，而是这个时代的人们如何被故事打动过的证据。”</div>
+          <p>在内容生态上，平台采用“企业出品 + 创作者共创”的双轨模式。企业团队负责专题企划、行业观察与官方企划的统筹，为社区提供稳定的骨架；认证创作者则贡献多元的表达视角——有人擅长年代剧的服饰考据，有人执着于悬疑剧的叙事结构，有人只写现代都市剧里那些被忽略的配角。我们格外珍惜这种<strong>多元与包容</strong>，因为正是差异，让关于剧的讨论免于变成口号。</p>
+          <p>社区氛围是寻剧吧最引以为傲的资产。我们设置了明确的评论公约：不剧透未播内容、不攻击演员本人、不为对错争输赢。这些规则看似简单，却需要长期的<strong>匠心</strong>维护。运营团队每天会浏览上千条评论，把有价值的讨论提炼成“今日热议”，让认真表达的人被看见。这种<strong>真实、温暖</strong>的互动，让寻剧吧从内容平台，逐步成长为许多用户的<strong>陪伴</strong>。</p>
+          <p>面向未来，寻剧吧将继续深耕剧集垂直领域：一方面加强原创企划与版权合作，让更多优质剧集拥有被深入讨论的空间；另一方面，通过创作挑战、比赛、投票与报名机制，为新人创作者提供第一支作品的起点。我们希望寻剧吧是一个<strong>值得信赖</strong>的剧集内容生态——不是最喧闹的那一个，但一定是最认真的那一个。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点内容 -->
+  <section class="xjb-section xjb-section-alt" id="xjb-focus">
+    <div class="xjb-wrap">
+      <div class="xjb-sec-head">
+        <div>
+          <div class="xjb-sec-eyebrow">Focus</div>
+          <h2>本周剧集焦点</h2>
+          <p>由编辑团队与认证剧评人共同推荐，聚焦值得反复拆解的剧集与影像。</p>
+        </div>
+        <a class="xjb-sec-link" href="#xjb-hot">更多精品内容 →</a>
+      </div>
+
+      <div class="xjb-focus-grid">
+        <article class="xjb-focus-main">
+          <a class="xjb-cover xjb-cover-ratio" href="#xjb-hot" aria-label="长剧拉片室第十二期：年代剧里的十二种灯光">
+            <svg viewBox="0 0 800 450" role="img" aria-label="长剧拉片室第十二期封面：午夜剧场里的老式放映机光束">
+              <defs>
+                <linearGradient id="xjbF1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#121c2e"/><stop offset=".6" stop-color="#2b1f3a"/><stop offset="1" stop-color="#3d2033"/>
+                </linearGradient>
+                <linearGradient id="xjbF1b" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#ffe6b0" stop-opacity=".95"/><stop offset="1" stop-color="#ffe6b0" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="450" fill="url(#xjbF1)"/>
+              <g opacity=".65">
+                <polygon points="150,300 780,110 780,330" fill="url(#xjbF1b)" opacity=".38"/>
+              </g>
+              <rect x="96" y="268" width="84" height="60" rx="10" fill="#0a111c"/>
+              <circle cx="138" cy="298" r="18" fill="#f2b544"/>
+              <circle cx="138" cy="298" r="11" fill="#3a2b12"/>
+              <rect x="96" y="330" width="84" height="9" rx="4" fill="#2a3448"/>
+              <g stroke="#ff5a5f" stroke-width="2.5" opacity=".8" fill="none">
+                <path d="M330 96v-16M370 96v-16M410 96v-16"/>
+              </g>
+              <text x="330" y="152" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="30" fill="#fff" font-weight="bold" letter-spacing="2">第十二期 · 年代剧的光</text>
+              <text x="330" y="190" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="16" fill="#b9c6da" letter-spacing="1">一束光如何决定一个角色的命运</text>
+              <g opacity=".2" fill="#fff">
+                <rect x="330" y="230" width="360" height="4" rx="2"/>
+                <rect x="330" y="248" width="300" height="4" rx="2"/>
+                <rect x="330" y="266" width="330" height="4" rx="2"/>
+              </g>
+              <circle cx="700" cy="370" r="42" fill="none" stroke="#f2b544" stroke-width="2" opacity=".55"/>
+            </svg>
+            <span class="xjb-cover-mark">官方企划</span>
+            <span class="xjb-cover-play"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="#0f1724"/></svg></span></span>
+            <span class="xjb-cover-dur">38:12</span>
+          </a>
+          <div class="xjb-focus-body">
+            <h3>长剧拉片室第十二期：年代剧里的十二种灯光</h3>
+            <p>从钨丝灯到窗棂侧光，我们逐帧拆解近十年年代剧的照明语言，看摄影指导如何用一束光交代人物的阶层、心情与命运转折。</p>
+            <div class="xjb-meta">
+              <span class="xjb-avatar xjb-av-a">寻</span>
+              <b>寻剧吧官方企划</b>
+              <span>11月18日</span>
+              <span>· 8.6万 次播放</span>
+              <span>· 1420 条讨论</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="xjb-focus-side">
+          <a class="xjb-mini" href="#xjb-hot">
+            <span class="xjb-cover">
+              <svg viewBox="0 0 200 112" role="img" aria-label="悬疑剧叙事结构图：交错的时间线节点">
+                <rect width="200" height="112" fill="#1b2436"/>
+                <g stroke="#4fd1c5" stroke-width="2" fill="none" opacity=".8">
+                  <polyline points="20,86 62,44 104,70 148,30 180,58"/>
+                </g>
+                <circle cx="62" cy="44" r="6" fill="#ff5a5f"/>
+                <circle cx="104" cy="70" r="5" fill="#f2b544"/>
+                <circle cx="148" cy="30" r="6" fill="#4fd1c5"/>
+                <text x="16" y="24" font-size="12" fill="#b9c6da" font-family="PingFang SC,Microsoft YaHei,sans-serif">时间线拆解</text>
+              </svg>
+            </span>
+            <span>
+              <h4>悬疑剧的第七分钟：叙事钩子的三种埋法</h4>
+              <span>作者 · 陆西洲 ／ 1.9万 讨论</span>
+            </span>
+          </a>
+          <a class="xjb-mini" href="#xjb-hot">
+            <span class="xjb-cover">
+              <svg viewBox="0 0 200 112" role="img" aria-label="都市剧配角群像封面：并排的三张人物剪影卡片">
+                <rect width="200" height="112" fill="#2a2438"/>
+                <rect x="18" y="26" width="44" height="60" rx="6" fill="#3d3550"/>
+                <circle cx="40" cy="48" r="11" fill="#ff5a5f"/>
+                <rect x="26" y="64" width="28" height="14" rx="7" fill="#c9b6e4"/>
+                <rect x="78" y="18" width="44" height="72" rx="6" fill="#4a3e60"/>
+                <circle cx="100" cy="42" r="11" fill="#f2b544"/>
+                <rect x="86" y="60" width="28" height="18" rx="7" fill="#e7d7b8"/>
+                <rect x="138" y="30" width="44" height="56" rx="6" fill="#3d3550"/>
+                <circle cx="160" cy="50" r="10" fill="#4fd1c5"/>
+                <rect x="146" y="66" width="28" height="12" rx="6" fill="#a9ded8"/>
+              </svg>
+            </span>
+            <span>
+              <h4>被忽略的配角：都市剧里的“第三个人”</h4>
+              <span>作者 · 沈昭 ／ 1.1万 讨论</span>
+            </span>
+          </a>
+          <a class="xjb-mini" href="#xjb-hot">
+            <span class="xjb-cover">
+              <svg viewBox="0 0 200 112" role="img" aria-label="剧评人访谈封面：麦克风与剧本对谈场景">
+                <rect width="200" height="112" fill="#20313a"/>
+                <rect x="22" y="60" width="70" height="34" rx="5" fill="#f4efe3"/>
+                <g stroke="#c0b69f" stroke-width="2"><path d="M32 68h50M32 76h50M32 84h34"/></g>
+                <circle cx="132" cy="56" r="22" fill="#f2b544"/>
+                <rect x="126" y="78" width="12" height="22" rx="4" fill="#8a6412"/>
+                <path d="M148 90c16 0 22-12 22-22" stroke="#4fd1c5" stroke-width="3" fill="none" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span>
+              <h4>访谈：一位剧评人如何保持十年不断更</h4>
+              <span>作者 · 编辑部 ／ 8600 讨论</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门内容 -->
+  <section class="xjb-section" id="xjb-hot">
+    <div class="xjb-wrap">
+      <div class="xjb-sec-head">
+        <div>
+          <div class="xjb-sec-eyebrow">Trending</div>
+          <h2>社区热门内容</h2>
+          <p>来自创作者与剧集同好的原创影像，覆盖解析、访谈、幕后与生活记录。</p>
+        </div>
+        <a class="xjb-sec-link" href="#xjb-contact">我要投稿 →</a>
+      </div>
+
+      <div class="xjb-tabs" id="xjbTabs">
+        <button class="xjb-tab is-on" data-tab="all">全部</button>
+        <button class="xjb-tab" data-tab="拉片解析">拉片解析</button>
+        <button class="xjb-tab" data-tab="人物访谈">人物访谈</button>
+        <button class="xjb-tab" data-tab="创作幕后">创作幕后</button>
+        <button class="xjb-tab" data-tab="剧评随笔">剧评随笔</button>
+      </div>
+
+      <div class="xjb-videos" id="xjbVideoList">
+
+        <article class="xjb-vcard" data-cat="拉片解析">
+          <a class="xjb-cover xjb-cover-ratio" href="#xjb-hot" aria-label="封面：老宅院天井里的斜射光">
+            <svg viewBox="0 0 400 225" role="img" aria-label="老宅天井斜射光拉片封面">
+              <defs><linearGradient id="xjbV1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2c1f"/><stop offset="1" stop-color="#5c4327"/></linearGradient></defs>
+              <rect width="400" height="225" fill="url(#xjbV1)"/>
+              <polygon points="120,0 280,0 360,225 40,225" fill="#f6d99a" opacity=".28"/>
+              <rect x="150" y="120" width="100" height="105" rx="4" fill="#241a10" opacity=".7"/>
+              <circle cx="200" cy="70" r="26" fill="#f2b544" opacity=".55"/>
+              <g stroke="#e8c882" stroke-width="1.6" opacity=".5"><path d="M0 40h400M0 70h400"/></g>
+            </svg>
+            <span class="xjb-cover-mark">拉片解析</span>
+            <span class="xjb-cover-play"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="#0f1724"/></svg></span></span>
+            <span class="xjb-cover-dur">22:47</span>
+          </a>
+          <div class="xjb-vcard-body">
+            <h3>天井里的那束光：年代剧构图的三层逻辑</h3>
+            <p>在同一机位下，导演如何用三次光角变化暗示人物关系的松动。</p>
+            <div class="xjb-tags"><span class="xjb-tag">拉片解析</span><span class="xjb-tag-x">年代剧</span></div>
+            <div class="xjb-vcard-foot">
+              <span class="xjb-author"><span class="xjb-avatar xjb-av-a">陆</span>陆西洲 · 2.3万播放</span>
+              <div class="xjb-actions">
+                <button class="xjb-icon-btn" data-like aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2 4 4 0 017 2c0 4.6-7 9-7 9z"/></svg></button>
+                <button class="xjb-icon-btn" data-fav aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="xjb-vcard" data-cat="人物访谈">
+          <a class="xjb-cover xjb-cover-ratio" href="#xjb-hot" aria-label="封面：采访现场的双人对话椅">
+            <svg viewBox="0 0 400 225" role="img" aria-label="剧评人访谈现场双椅封面">
+              <rect width="400" height="225" fill="#1e2a3a"/>
+              <rect x="52" y="130" width="110" height="70" rx="12" fill="#33455f"/>
+              <rect x="238" y="118" width="110" height="82" rx="12" fill="#3a2d4d"/>
+              <circle cx="107" cy="98" r="24" fill="#ff5a5f"/>
+              <circle cx="293" cy="86" r="24" fill="#f2b544"/>
+              <rect x="176" y="60" width="48" height="14" rx="7" fill="#4fd1c5" opacity=".8"/>
+              <text x="200" y="205" text-anchor="middle" font-size="12" fill="#9fb0c8" font-family="PingFang SC,Microsoft YaHei,sans-serif">TALK · 创作者对谈</text>
+            </svg>
+            <span class="xjb-cover-mark">人物访谈</span>
+            <span class="xjb-cover-play"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="#0f1724"/></svg></span></span>
+            <span class="xjb-cover-dur">46:03</span>
+          </a>
+          <div class="xjb-vcard-body">
+            <h3>对谈沈昭：我把剧评当成一种手艺人工作</h3>
+            <p>从报社编辑到社区创作者，她聊了聊十年写作里最笨也最有效的方法。</p>
+            <div class="xjb-tags"><span class="xjb-tag">人物访谈</span><span class="xjb-tag-y">创作方法</span></div>
+            <div class="xjb-vcard-foot">
+              <span class="xjb-author"><span class="xjb-avatar xjb-av-e">沈</span>沈昭 · 1.8万播放</span>
+              <div class="xjb-actions">
+                <button class="xjb-icon-btn" data-like aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2 4 4 0 017 2c0 4.6-7 9-7 9z"/></svg></button>
+                <button class="xjb-icon-btn" data-fav aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="xjb-vcard" data-cat="创作幕后">
+          <a class="xjb-cover xjb-cover-ratio" href="#xjb-hot" aria-label="封面：剪辑室里的多屏时间线">
+            <svg viewBox="0 0 400 225" role="img" aria-label="剪辑室多屏时间线幕后封面">
+              <rect width="400" height="225" fill="#141b26"/>
+              <g fill="#22314a"><rect x="20" y="24" width="168" height="96" rx="6"/><rect x="212" y="24" width="168" height="96" rx="6"/></g>
+              <g fill="#ff5a5f" opacity=".85"><rect x="34" y="42" width="60" height="8" rx="4"/><rect x="34" y="58" width="120" height="8" rx="4"/></g>
+              <g fill="#4fd1c5" opacity=".8"><rect x="226" y="42" width="90" height="8" rx="4"/><rect x="226" y="58" width="64" height="8" rx="4"/></g>
+              <rect x="20" y="140" width="360" height="10" rx="5" fill="#2b3d57"/>
+              <rect x="20" y="160" width="360" height="10" rx="5" fill="#2b3d57"/>
+              <rect x="78" y="140" width="96" height="10" rx="5" fill="#f2b544"/>
+              <rect x="210" y="160" width="120" height="10" rx="5" fill="#ff5a5f"/>
+            </svg>
+            <span class="xjb-cover-mark">创作幕后</span>
+            <span class="xjb-cover-play"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="#0f1724"/></svg></span></span>
+            <span class="xjb-cover-dur">15:36</span>
+          </a>
+          <div class="xjb-vcard-body">
+            <h3>一支剧评影像的诞生：从三稿脚本到十九次修剪</h3>
+            <p>完整记录团队如何把一篇四千字长文压缩成八分钟的结构化表达。</p>
+            <div class="xjb-tags"><span class="xjb-tag">创作幕后</span><span class="xjb-tag-x">流程</span></div>
+            <div class="xjb-vcard-foot">
+              <span class="xjb-author"><span class="xjb-avatar xjb-av-b">编</span>编辑部 · 2.6万播放</span>
+              <div class="xjb-actions">
+                <button class="xjb-icon-btn" data-like aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2 4 4 0 017 2c0 4.6-7 9-7 9z"/></svg></button>
+                <button class="xjb-icon-btn" data-fav aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="xjb-vcard" data-cat="剧评随笔">
+          <a class="xjb-cover xjb-cover-ratio" href="#xjb-hot" aria-label="封面：窗边读剧本的手写笔记">
+            <svg viewBox="0 0 400 225" role="img" aria-label="窗边手写剧评笔记封面">
+              <rect width="400" height="225" fill="#efe7d6"/>
+              <rect x="0" y="0" width="150" height="225" fill="#dcd2be"/>
+              <rect x="20" y="26" width="110" height="80" rx="4" fill="#f6f1e4" stroke="#c7bca4" stroke-width="2"/>
+              <g stroke="#9a8e76" stroke-width="2" opacity=".8"><path d="M32 48h72M32 64h86M32 80h58"/></g>
+              <rect x="176" y="52" width="196" height="132" rx="6" fill="#fffdf7" transform="rotate(-3 274 118)"/>
+              <g stroke="#b9a98c" stroke-width="2.4" transform="rotate(-3 274 118)">
+                <path d="M196 90h150M196 112h150M196 134h120M196 156h96"/>
+              </g>
+              <circle cx="350" cy="42" r="14" fill="#ff5a5f"/>
+            </svg>
+            <span class="xjb-cover-mark">剧评随笔</span>
+            <span class="xjb-cover-play"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="#0f1724"/></svg></span></span>
+            <span class="xjb-cover-dur">09:14</span>
+          </a>
+          <div class="xjb-vcard-body">
+            <h3>写了一百篇剧评之后，我开始学会删掉一半的形容词</h3>
+            <p>关于克制：为什么最好的剧评，往往像一场安静的散步。</p>
+            <div class="xjb-tags"><span class="xjb-tag">剧评随笔</span><span class="xjb-tag-y">写作</span></div>
+            <div class="xjb-vcard-foot">
+              <span class="xjb-author"><span class="xjb-avatar xjb-av-d">陈</span>陈不晚 · 1.2万播放</span>
+              <div class="xjb-actions">
+                <button class="xjb-icon-btn" data-like aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2 4 4 0 017 2c0 4.6-7 9-7 9z"/></svg></button>
+                <button class="xjb-icon-btn" data-fav aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="xjb-vcard" data-cat="拉片解析">
+          <a class="xjb-cover xjb-cover-ratio" href="#xjb-hot" aria-label="封面：城市夜景与时间轴叠影">
+            <svg viewBox="0 0 400 225" role="img" aria-label="都市剧时间轴叠影封面">
+              <rect width="400" height="225" fill="#101c2c"/>
+              <g fill="#1f3350"><rect x="20" y="90" width="46" height="135"/><rect x="80" y="58" width="52" height="167"/><rect x="146" y="110" width="40" height="115"/><rect x="200" y="74" width="58" height="151"/><rect x="272" y="100" width="44" height="125"/><rect x="330" y="66" width="50" height="159"/></g>
+              <g fill="#f2b544" opacity=".8"><rect x="92" y="80" width="10" height="10"/><rect x="112" y="80" width="10" height="10"/><rect x="212" y="96" width="10" height="10"/><rect x="342" y="88" width="10" height="10"/></g>
+              <g stroke="#ff5a5f" stroke-width="2.6" fill="none" opacity=".9"><path d="M20 40h360"/><circle cx="120" cy="40" r="6" fill="#ff5a5f"/><circle cx="300" cy="40" r="6" fill="#ff5a5f"/></g>
+            </svg>
+            <span class="xjb-cover-mark">拉片解析</span>
+            <span class="xjb-cover-play"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="#0f1724"/></svg></span></span>
+            <span class="xjb-cover-dur">27:50</span>
+          </a>
+          <div class="xjb-vcard-body">
+            <h3>三线并行的都市剧：时间轴是怎么被剪出来的</h3>
+            <p>把六集内容拆成九十三个时间节点，看剪辑师如何让三条线互相咬合。</p>
+            <div class="xjb-tags"><span class="xjb-tag">拉片解析</span><span class="xjb-tag-x">剪辑</span></div>
+            <div class="xjb-vcard-foot">
+              <span class="xjb-author"><span class="xjb-avatar xjb-av-f">周</span>周渡 · 3.1万播放</span>
+              <div class="xjb-actions">
+                <button class="xjb-icon-btn" data-like aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2 4 4 0 017 2c0 4.6-7 9-7 9z"/></svg></button>
+                <button class="xjb-icon-btn" data-fav aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="xjb-vcard" data-cat="剧评随笔">
+          <a class="xjb-cover xjb-cover-ratio" href="#xjb-hot" aria-label="封面：深夜客厅与一杯茶">
+            <svg viewBox="0 0 400 225" role="img" aria-label="深夜追剧客厅氛围封面">
+              <rect width="400" height="225" fill="#191d29"/>
+              <rect x="0" y="150" width="400" height="75" fill="#242a3a"/>
+              <rect x="40" y="96" width="150" height="58" rx="8" fill="#2f3a52"/>
+              <rect x="60" y="112" width="110" height="4" rx="2" fill="#4a5a7a"/>
+              <rect x="240" y="112" width="46" height="58" rx="6" fill="#3a2c46"/>
+              <circle cx="263" cy="96" r="18" fill="#f2b544" opacity=".85"/>
+              <path d="M300 170c14-10 26-2 26-2s12-8 26 2" stroke="#4fd1c5" stroke-width="3" fill="none" opacity=".6"/>
+              <circle cx="352" cy="46" r="22" fill="#ff5a5f" opacity=".35"/>
+            </svg>
+            <span class="xjb-cover-mark">剧评随笔</span>
+            <span class="xjb-cover-play"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4l14 8-14 8z" fill="#0f1724"/></svg></span></span>
+            <span class="xjb-cover-dur">11:28</span>
+          </a>
+          <div class="xjb-vcard-body">
+            <h3>深夜十一点，我把那部剧又看了一遍</h3>
+            <p>有些剧不负责讲完故事，它只负责在你疲惫时，把灯调暗一点。</p>
+            <div class="xjb-tags"><span class="xjb-tag">剧评随笔</span><span class="xjb-tag-y">治愈</span></div>
+            <div class="xjb-vcard-foot">
+              <span class="xjb-author"><span class="xjb-avatar xjb-av-c">阿</span>阿棠 · 9800播放</span>
+              <div class="xjb-actions">
+                <button class="xjb-icon-btn" data-like aria-label="点赞"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2 4 4 0 017 2c0 4.6-7 9-7 9z"/></svg></button>
+                <button class="xjb-icon-btn" data-fav aria-label="收藏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="xjb-section xjb-section-alt" id="xjb-topics">
+    <div class="xjb-wrap">
+      <div class="xjb-sec-head">
+        <div>
+          <div class="xjb-sec-eyebrow">Specials</div>
+          <h2>专题企划</h2>
+          <p>由官方发布、持续更新的深度企划，每一档都有明确的选题方向与更新节奏。</p>
+        </div>
+      </div>
+      <div class="xjb-topics">
+
+        <a class="xjb-topic" href="#xjb-hot">
+          <span class="xjb-cover">
+            <svg viewBox="0 0 400 210" role="img" aria-label="年代剧专题封面：老站台与绿皮车">
+              <rect width="400" height="210" fill="#3a2f24"/>
+              <rect x="0" y="140" width="400" height="70" fill="#2a2219"/>
+              <rect x="40" y="60" width="320" height="80" rx="8" fill="#6b5a44"/>
+              <g fill="#f6d99a" opacity=".9"><rect x="66" y="80" width="40" height="30" rx="3"/><rect x="120" y="80" width="40" height="30" rx="3"/><rect x="174" y="80" width="40" height="30" rx="3"/><rect x="228" y="80" width="40" height="30" rx="3"/></g>
+              <g stroke="#c9b58d" stroke-width="2"><path d="M20 140h360M40 160h320"/></g>
+              <circle cx="330" cy="44" r="18" fill="#ff5a5f"/>
+            </svg>
+          </span>
+          <div class="xjb-topic-body">
+            <h3>年代剧观察：一间屋子的三十年</h3>
+            <p>从布景、家具到光线，拆解年代剧如何用空间讲述时间。</p>
+            <div class="xjb-topic-state">
+              <span class="xjb-state-dot"><i></i>更新中 · 第 6 期</span>
+              <span>3.4万 人关注</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="xjb-topic" href="#xjb-hot">
+          <span class="xjb-cover">
+            <svg viewBox="0 0 400 210" role="img" aria-label="悬疑剧专题封面：暗巷里的手电光束">
+              <rect width="400" height="210" fill="#101a1e"/>
+              <polygon points="60,190 200,30 340,190" fill="#1d3b3a" opacity=".7"/>
+              <polygon points="170,190 200,60 230,190" fill="#c8f0e8" opacity=".28"/>
+              <rect x="186" y="120" width="28" height="70" rx="4" fill="#0a1214"/>
+              <circle cx="200" cy="112" r="9" fill="#f2b544"/>
+              <g fill="#4fd1c5" opacity=".7"><circle cx="72" cy="46" r="4"/><circle cx="330" cy="60" r="4"/><circle cx="300" cy="150" r="3"/></g>
+            </svg>
+          </span>
+          <div class="xjb-topic-body">
+            <h3>悬疑叙事实战：钩子、误导与回收</h3>
+            <p>以十二部作品为样本，讨论悬疑剧在结构上的成败关键。</p>
+            <div class="xjb-topic-state">
+              <span class="xjb-state-dot"><i></i>更新中 · 第 9 期</span>
+              <span>5.1万 人关注</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="xjb-topic" href="#xjb-hot">
+          <span class="xjb-cover">
+            <svg viewBox="0 0 400 210" role="img" aria-label="创作者专题封面：稿纸与镜头并置">
+              <rect width="400" height="210" fill="#2b2334"/>
+              <rect x="28" y="30" width="150" height="150" rx="8" fill="#3b3149"/>
+              <g stroke="#9f92b8" stroke-width="2.6"><path d="M46 58h114M46 82h114M46 106h88M46 130h100"/></g>
+              <circle cx="288" cy="94" r="46" fill="none" stroke="#f2b544" stroke-width="3"/>
+              <circle cx="288" cy="94" r="26" fill="#f2b544" opacity=".28"/>
+              <path d="M272 78l34 16-34 16z" fill="#ff5a5f"/>
+              <rect x="240" y="160" width="118" height="10" rx="5" fill="#f2b544" opacity=".7"/>
+            </svg>
+          </span>
+          <div class="xjb-topic-body">
+            <h3>创作者的房间：他们怎么写剧评</h3>
+            <p>走进六位创作者的日常，看看那些文字与影像是在哪里长出来的。</p>
+            <div class="xjb-topic-state">
+              <span class="xjb-state-dot"><i></i>更新中 · 第 4 期</span>
+              <span>2.2万 人关注</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="xjb-section" id="xjb-creators">
+    <div class="xjb-wrap">
+      <div class="xjb-sec-head">
+        <div>
+          <div class="xjb-sec-eyebrow">Creators</div>
+          <h2>认证创作者矩阵</h2>
+          <p>平台的骨架由这些长期执笔、持续输出的人构成。他们来自不同行业，却共享同一种认真。</p>
+        </div>
+        <a class="xjb-sec-link" href="#xjb-contact">申请认证 →</a>
+      </div>
+
+      <div class="xjb-creators">
+
+        <article class="xjb-creator">
+          <span class="xjb-avatar xjb-avatar-lg xjb-av-a">陆</span>
+          <h3>陆西洲</h3>
+          <div class="xjb-creator-role">拉片解析 · 摄影方向</div>
+          <p>十年摄影指导经验，擅长用镜头语言拆解剧集情绪，更新稳定得近乎固执。</p>
+          <div class="xjb-creator-nums">
+            <span><b>218</b>作品</span>
+            <span><b>12.4万</b>关注</span>
+          </div>
+          <button class="xjb-creator-more" data-author="陆西洲|拉片解析 · 摄影方向|十年摄影指导经验，负责寻剧吧“镜头语言”系列企划主笔，坚持每期逐帧标注。|218 部作品 · 12.4万 关注">查看档案</button>
+        </article>
+
+        <article class="xjb-creator">
+          <span class="xjb-avatar xjb-avatar-lg xjb-av-e">沈</span>
+          <h3>沈昭</h3>
+          <div class="xjb-creator-role">剧评长文 · 人物分析</div>
+          <p>前文化记者，写剧评十年。她的文字不追求金句，只追求准确与体面。</p>
+          <div class="xjb-creator-nums">
+            <span><b>164</b>作品</span>
+            <span><b>9.8万</b>关注</span>
+          </div>
+          <button class="xjb-creator-more" data-author="沈昭|剧评长文 · 人物分析|前文化记者，寻剧吧元老级创作者，长期负责人物分析专栏，主张“先理解再评价”。|164 部作品 · 9.8万 关注">查看档案</button>
+        </article>
+
+        <article class="xjb-creator">
+          <span class="xjb-avatar xjb-avatar-lg xjb-av-b">周</span>
+          <h3>周渡</h3>
+          <div class="xjb-creator-role">剪辑分析 · 叙事结构</div>
+          <p>独立剪辑师，喜欢把剧集拆成时间轴。他说，节奏是观众感受不到的那部分。</p>
+          <div class="xjb-creator-nums">
+            <span><b>97</b>作品</span>
+            <span><b>7.2万</b>关注</span>
+          </div>
+          <button class="xjb-creator-more" data-author="周渡|剪辑分析 · 叙事结构|独立剪辑师，擅长多线叙事与节奏分析，为平台提供大量结构图与时间轴素材。|97 部作品 · 7.2万 关注">查看档案</button>
+        </article>
+
+        <article class="xjb-creator">
+          <span class="xjb-avatar xjb-avatar-lg xjb-av-d">陈</span>
+          <h3>陈不晚</h3>
+          <div class="xjb-creator-role">剧评随笔 · 生活方式</div>
+          <p>自由撰稿人，写剧也写生活。她相信一部剧的温度，常常藏在配角的沉默里。</p>
+          <div class="xjb-creator-nums">
+            <span><b>132</b>作品</span>
+            <span><b>6.6万</b>关注</span>
+          </div>
+          <button class="xjb-creator-more" data-author="陈不晚|剧评随笔 · 生活方式|自由撰稿人，擅长把剧评写成生活随笔，关注细节、语气与留白。|132 部作品 · 6.6万 关注">查看档案</button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品墙 -->
+  <section class="xjb-section xjb-section-alt" id="xjb-wall">
+    <div class="xjb-wrap">
+      <div class="xjb-sec-head">
+        <div>
+          <div class="xjb-sec-eyebrow">Gallery</div>
+          <h2>社区影像墙</h2>
+          <p>由用户上传的剧集相关影像与图文记录，涵盖场景考据、道具复刻与观剧日常。</p>
+        </div>
+        <a class="xjb-sec-link" href="#xjb-contact">上传作品 →</a>
+      </div>
+
+      <div class="xjb-wall">
+        <div class="xjb-wall-item xjb-w6">
+          <svg viewBox="0 0 600 300" role="img" aria-label="影像墙大图：复刻剧中书房的书桌与台灯">
+            <rect width="600" height="300" fill="#3a2d24"/>
+            <rect x="0" y="200" width="600" height="100" fill="#2a2019"/>
+            <rect x="90" y="150" width="180" height="60" rx="6" fill="#5a4530"/>
+            <rect x="110" y="120" width="80" height="34" rx="4" fill="#f2b544" opacity=".85"/>
+            <circle cx="420" cy="120" r="42" fill="#f6d99a" opacity=".3"/>
+            <rect x="400" y="150" width="60" height="80" rx="6" fill="#4a3828"/>
+            <g stroke="#c9a76a" stroke-width="3" opacity=".7"><path d="M320 60v90M340 60v90M360 60v90"/></g>
+          </svg>
+          <span class="xjb-wall-cap">书房复原计划 · 剧中那张老书桌的七天</span>
+        </div>
+        <div class="xjb-wall-item xjb-w3">
+          <svg viewBox="0 0 300 300" role="img" aria-label="影像墙：手绘剧集分镜草图">
+            <rect width="300" height="300" fill="#f0e9da"/>
+            <g stroke="#b6a888" stroke-width="2.4" fill="none">
+              <rect x="26" y="26" width="110" height="70" rx="4"/>
+              <rect x="160" y="26" width="110" height="70" rx="4"/>
+              <rect x="26" y="118" width="110" height="70" rx="4"/>
+              <rect x="160" y="118" width="110" height="70" rx="4"/>
+            </g>
+            <g fill="#ff5a5f" opacity=".8"><circle cx="81" cy="61" r="12"/><circle cx="215" cy="153" r="10"/></g>
+            <g fill="#2e3a4d"><circle cx="215" cy="61" r="10"/><circle cx="81" cy="153" r="12"/></g>
+            <rect x="26" y="212" width="244" height="8" rx="4" fill="#c4b69a"/>
+            <rect x="26" y="232" width="180" height="8" rx="4" fill="#c4b69a"/>
+          </svg>
+          <span class="xjb-wall-cap">手绘分镜 · 一场雨夜戏</span>
+        </div>
+        <div class="xjb-wall-item xjb-w3">
+          <svg viewBox="0 0 300 300" role="img" aria-label="影像墙：复刻剧中服装的衣架特写">
+            <rect width="300" height="300" fill="#242b3a"/>
+            <rect x="60" y="30" width="180" height="240" rx="8" fill="#303a4e"/>
+            <path d="M150 60v54" stroke="#8fa0b8" stroke-width="3"/>
+            <path d="M100 114h100l-16 26H116z" fill="#ff5a5f"/>
+            <path d="M116 140h68v90h-68z" fill="#c9317a" opacity=".85"/>
+            <g stroke="#f2b544" stroke-width="2" opacity=".6"><path d="M126 158h48M126 176h48M126 194h34"/></g>
+          </svg>
+          <span class="xjb-wall-cap">服饰考据 · 一件外套的三重身份</span>
+        </div>
+        <div class="xjb-wall-item xjb-w4">
+          <svg viewBox="0 0 400 250" role="img" aria-label="影像墙：观剧笔记拼贴与票根">
+            <rect width="400" height="250" fill="#e7e0d2"/>
+            <rect x="24" y="26" width="160" height="120" rx="6" fill="#fffdf6" transform="rotate(-4 104 86)"/>
+            <g stroke="#b9a98c" stroke-width="2.4" transform="rotate(-4 104 86)"><path d="M42 60h124M42 82h124M42 104h84"/></g>
+            <rect x="210" y="46" width="166" height="98" rx="6" fill="#f4d3d4" transform="rotate(3 293 95)"/>
+            <g stroke="#c98d90" stroke-width="2.4" transform="rotate(3 293 95)"><path d="M226 78h130M226 100h130M226 122h88"/></g>
+            <rect x="90" y="168" width="220" height="56" rx="6" fill="#2e3a4d"/>
+            <g fill="#f2b544"><rect x="110" y="186" width="60" height="6" rx="3"/><rect x="110" y="202" width="120" height="6" rx="3"/></g>
+          </svg>
+          <span class="xjb-wall-cap">观剧笔记 · 我的第一百张票根</span>
+        </div>
+        <div class="xjb-wall-item xjb-w2">
+          <svg viewBox="0 0 200 250" role="img" aria-label="影像墙：剧中台词的竖排手写卡">
+            <rect width="200" height="250" fill="#1f2733"/>
+            <g stroke="#f2b544" stroke-width="3" opacity=".9"><path d="M160 34v182"/></g>
+            <g fill="#e4ebf5" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="18">
+              <text x="136" y="60" text-anchor="middle">灯</text>
+              <text x="136" y="86" text-anchor="middle">亮</text>
+              <text x="136" y="112" text-anchor="middle">着</text>
+              <text x="136" y="150" text-anchor="middle">就</text>
+              <text x="136" y="176" text-anchor="middle">好</text>
+            </g>
+            <circle cx="52" cy="200" r="24" fill="#ff5a5f" opacity=".5"/>
+          </svg>
+          <span class="xjb-wall-cap">台词卡</span>
+        </div>
+        <div class="xjb-wall-item xjb-w2">
+          <svg viewBox="0 0 200 250" role="img" aria-label="影像墙：夜戏灯位平面示意">
+            <rect width="200" height="250" fill="#20283a"/>
+            <g stroke="#4fd1c5" stroke-width="2" opacity=".7"><path d="M30 40h140M30 40v170M170 40v170M30 210h140"/></g>
+            <circle cx="70" cy="90" r="14" fill="#f2b544"/>
+            <circle cx="132" cy="130" r="14" fill="#ff5a5f"/>
+            <path d="M70 90l62 40" stroke="#8fa0b8" stroke-width="2" stroke-dasharray="5 5"/>
+            <rect x="86" y="164" width="28" height="28" rx="4" fill="#8fa0b8"/>
+          </svg>
+          <span class="xjb-wall-cap">灯位图</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 评论 -->
+  <section class="xjb-section" id="xjb-reviews">
+    <div class="xjb-wrap">
+      <div class="xjb-sec-head">
+        <div>
+          <div class="xjb-sec-eyebrow">Voices</div>
+          <h2>社区里的真实声音</h2>
+          <p>这些评价来自长期使用寻剧吧的用户，有建议，也有批评。我们保留原样。</p>
+        </div>
+      </div>
+
+      <div class="xjb-reviews">
+        <div class="xjb-review">
+          <span class="xjb-avatar xjb-av-b">林</span>
+          <div class="xjb-review-body">
+            <div class="xjb-review-top"><b>林间有风</b><span class="xjb-review-star">★★★★★</span></div>
+            <p>追了三年，最打动我的不是片源多少，而是评论区真的能好好说话。为了一句台词的解读能翻二十层楼，还都挺客气。</p>
+            <div class="xjb-review-when">11月17日 · 来自移动端</div>
+          </div>
+        </div>
+        <div class="xjb-review">
+          <span class="xjb-avatar xjb-av-c">阿</span>
+          <div class="xjb-review-body">
+            <div class="xjb-review-top"><b>阿棠不加糖</b><span class="xjb-review-star">★★★★☆</span></div>
+            <p>拉片室系列是我的下饭常备。唯一建议：能不能给每期配一份文字版时间轴，通勤路上不方便看视频。</p>
+            <div class="xjb-review-when">11月16日 · 来自网页端</div>
+          </div>
+        </div>
+        <div class="xjb-review">
+          <span class="xjb-avatar xjb-av-d">一</span>
+          <div class="xjb-review-body">
+            <div class="xjb-review-top"><b>一只橘猫</b><span class="xjb-review-star">★★★★★</span></div>
+            <p>作为新人创作者，第一次投稿就被编辑认真回复了，还给了剪辑节奏上的具体建议。这种被当回事的感觉，很少在别的平台遇到。</p>
+            <div class="xjb-review-when">11月15日 · 来自创作者后台</div>
+          </div>
+        </div>
+        <div class="xjb-review">
+          <span class="xjb-avatar xjb-av-f">顾</span>
+          <div class="xjb-review-body">
+            <div class="xjb-review-top"><b>顾习之</b><span class="xjb-review-star">★★★★☆</span></div>
+            <p>专题做得扎实，年代剧观察那期把家具的年份都标出来了，看得出是下过功夫的。希望更新再快一点，等得有点久。</p>
+            <div class="xjb-review-when">11月13日 · 来自移动端</div>
+          </div>
+        </div>
+        <div class="xjb-review">
+          <span class="xjb-avatar xjb-av-a">夏</span>
+          <div class="xjb-review-body">
+            <div class="xjb-review-top"><b>夏至未至</b><span class="xjb-review-star">★★★★★</span></div>
+            <p>喜欢这里的“不剧透”氛围。以前在别的社区被剧透到心态崩了，来这边之后终于敢点开讨论了。</p>
+            <div class="xjb-review-when">11月12日 · 来自网页端</div>
+          </div>
+        </div>
+        <div class="xjb-review">
+          <span class="xjb-avatar xjb-av-e">周</span>
+          <div class="xjb-review-body">
+            <div class="xjb-review-top"><b>周末看电影</b><span class="xjb-review-star">★★★★☆</span></div>
+            <p>创作者档案页信息很全，能顺着一位作者把相关作品串起来看，这点比大多数同类站用心。收藏夹功能希望能支持分组。</p>
+            <div class="xjb-review-when">11月10日 · 来自移动端</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业动态 & 合作 -->
+  <section class="xjb-section xjb-section-alt" id="xjb-news">
+    <div class="xjb-wrap">
+      <div class="xjb-sec-head">
+        <div>
+          <div class="xjb-sec-eyebrow">Newsroom</div>
+          <h2>企业动态与官方发布</h2>
+          <p>平台的最新进展、企划安排与社区活动，都在这里集中公布。</p>
+        </div>
+      </div>
+
+      <div class="xjb-news">
+        <article class="xjb-news-item">
+          <div class="xjb-news-date"><b>19</b><span>NOV</span></div>
+          <div>
+            <h3><span class="xjb-news-mark">新增</span>“年代剧的光”专题第六期上线</h3>
+            <p>本期新增四段导演访谈素材与两套光位图解，专题总时长突破六小时。</p>
+          </div>
+        </article>
+        <article class="xjb-news-item">
+          <div class="xjb-news-date"><b>17</b><span>NOV</span></div>
+          <div>
+            <h3>创作挑战「一镜到底」报名开启</h3>
+            <p>面向全部认证创作者，鼓励用单一长镜头完成一段剧集解读，报名截止12月8日。</p>
+          </div>
+        </article>
+        <article class="xjb-news-item">
+          <div class="xjb-news-date"><b>14</b><span>NOV</span></div>
+          <div>
+            <h3>剧评人认证计划第二期开放申请</h3>
+            <p>需提交两篇原创长评与一份创作说明，通过后进入官方推荐池并参与年度评选投票。</p>
+          </div>
+        </article>
+        <article class="xjb-news-item">
+          <div class="xjb-news-date"><b>09</b><span>NOV</span></div>
+          <div>
+            <h3>平台完成播放体验升级，高清队列全面开放</h3>
+            <p>本次更新优化了长视频的加载策略与移动端封面清晰度，社区反馈的卡顿问题已修复。</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:38px">
+        <div class="xjb-sec-head" style="margin-bottom:18px">
+          <div>
+            <div class="xjb-sec-eyebrow">Partners</div>
+            <h2 style="font-size:22px">合作品牌与伙伴</h2>
+          </div>
+        </div>
+        <div class="xjb-partners">
+          <div class="xjb-partner">城南剧场<small>线下放映合作</small></div>
+          <div class="xjb-partner">拾光影像<small>内容共创伙伴</small></div>
+          <div class="xjb-partner">白露书店<small>剧评读书会</small></div>
+          <div class="xjb-partner">三号线工作室<small>幕后记录支持</small></div>
+          <div class="xjb-partner">青柠檬剪辑室<small>创作工具合作</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="xjb-section" id="xjb-help">
+    <div class="xjb-wrap">
+      <div class="xjb-sec-head">
+        <div>
+          <div class="xjb-sec-eyebrow">Help</div>
+          <h2>帮助中心 · 常见问题</h2>
+          <p>关于账号、投稿、认证与社区规范的常见疑问，可在此快速查阅。</p>
+        </div>
+      </div>
+
+      <div class="xjb-faq">
+        <details open>
+          <summary>如何成为寻剧吧的认证创作者？</summary>
+          <p>需完成账号实名并累计发布不少于 8 篇原创内容，然后在“创作者中心”提交认证申请。编辑团队会在 7 个工作日内给出反馈，包含具体的改进建议。通过后可获得专属主页、企划优先参与权与年度评选资格。</p>
+        </details>
+        <details>
+          <summary>投稿有题材与时长限制吗？</summary>
+          <p>题材以剧集相关内容为主，包括拉片解析、剧评长文、人物访谈、创作幕后与观剧生活记录。建议单支影像时长在 6 至 40 分钟之间；图文投稿建议不少于 1200 字，并附至少三张原创配图。</p>
+        </details>
+        <details>
+          <summary>社区为什么不鼓励“短平快”的爆料式内容？</summary>
+          <p>寻剧吧定位为深度内容社区。我们希望讨论停留在作品本身，而不是话题热度。因此对涉及未播内容的剧透、演员私人信息以及情绪化对立的内容，会做降权或删除处理，并在站内说明原因。</p>
+        </details>
+        <details>
+          <summary>如何参与专题企划与创作挑战？</summary>
+          <p>每期企划会在“企业动态”中公布选题方向与报名入口。认证创作者可直接报名，普通用户也可通过“创作挑战”投稿通道提交作品。评审由编辑团队与社区创作者代表共同完成，结果公开公示。</p>
+        </details>
+        <details>
+          <summary>收藏与点赞的数据会公开吗？</summary>
+          <p>点赞数对外展示，收藏默认仅自己可见。你可以在个人设置中调整收藏夹的隐私状态。平台不会将收藏数据用于任何商业推荐，也不会对外提供个人收藏明细。</p>
+        </details>
+        <details>
+          <summary>发现不合规内容怎么反馈？</summary>
+          <p>可在内容详情页点击分享按钮旁的反馈入口，选择具体类型并简要说明。我们承诺 24 小时内完成初审，处理结果会通过站内消息告知。对明显违规的内容会先行下架，再补充核实。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系 -->
+  <section class="xjb-section xjb-section-alt" id="xjb-contact">
+    <div class="xjb-wrap">
+      <div class="xjb-contact">
+        <div>
+          <div class="xjb-sec-eyebrow" style="color:#f2b544">Contact</div>
+          <h2>把你的那部剧，讲给更多人听</h2>
+          <p>无论是投稿、认证、合作还是产品建议，都欢迎通过下列方式联系寻剧吧团队。我们保留每一条留言，并在工作日 48 小时内回复。</p>
+          <form class="xjb-contact-form" id="xjbContactForm">
+            <input type="email" id="xjbEmail" placeholder="留下邮箱，获取投稿与企划通知" aria-label="邮箱">
+            <button type="submit">订阅官方发布</button>
+          </form>
+        </div>
+        <div class="xjb-contact-info">
+          <div class="xjb-ci">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="#f2b544" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></i>
+            <div><b>投稿与内容合作</b>editor@xunjuba.example</div>
+          </div>
+          <div class="xjb-ci">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="#f2b544" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg></i>
+            <div><b>品牌与企业事务</b>brand@xunjuba.example</div>
+          </div>
+          <div class="xjb-ci">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="#f2b544" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i>
+            <div><b>工作时间</b>周一至周五 10:00 – 19:00</div>
+          </div>
+          <div class="xjb-ci">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="#f2b544" stroke-width="2"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></i>
+            <div><b>社区运营中心</b>城南文创园 3 号楼 402</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="xjb-footer">
+  <div class="xjb-wrap">
+    <div class="xjb-footer-grid">
+      <div>
+        <div class="xjb-footer-brand">
+          <span class="xjb-brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5l12 7-12 7z" fill="#ff5a5f"/></svg></span>
+          <span class="xjb-brand-name" style="color:#fff">寻剧<span>吧</span></span>
+        </div>
+        <p>寻剧吧官方网站 · 剧集内容与原创影像社区。<br>专注拉片解析、剧评长文、创作者访谈与幕后记录，<br>持续运营高品质内容生态，与创作者共同成长。</p>
+        <div>
+          <span class="xjb-footer-badge">原创内容</span>
+          <span class="xjb-footer-badge">正版合作</span>
+          <span class="xjb-footer-badge">高清品质</span>
+        </div>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#xjb-focus">剧集焦点</a></li>
+          <li><a href="#xjb-hot">热门内容</a></li>
+          <li><a href="#xjb-topics">专题企划</a></li>
+          <li><a href="#xjb-wall">社区影像墙</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于品牌</h4>
+        <ul>
+          <li><a href="#xjb-about">品牌故事</a></li>
+          <li><a href="#xjb-creators">创作者矩阵</a></li>
+          <li><a href="#xjb-news">企业动态</a></li>
+          <li><a href="#xjb-help">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与社区</h4>
+        <ul>
+          <li><a href="#xjb-contact">投稿与合作</a></li>
+          <li><a href="#xjb-help">认证与规范</a></li>
+          <li><a href="#xjb-news">活动与挑战</a></li>
+          <li><a href="#xjb-top">回到首页</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="xjb-footer-bottom">
+      <span>© 2019—2026 寻剧吧 官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容生态共建 · 用户至上 · 值得信赖的剧集社区</span>
+    </div>
+  </div>
+</footer>
+
+<button class="xjb-top" id="xjbTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<div class="xjb-toast" id="xjbToast"></div>
+
+<div class="xjb-modal-mask" id="xjbModalMask">
+  <div class="xjb-modal" role="dialog" aria-modal="true" aria-labelledby="xjbModalTitle">
+    <div class="xjb-modal-head">
+      <h3 id="xjbModalTitle">分享</h3>
+      <button class="xjb-modal-close" id="xjbModalClose" aria-label="关闭">×</button>
+    </div>
+    <div id="xjbModalBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var $ = function(sel, root){ return (root||document).querySelector(sel); };
+  var $$ = function(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); };
+
+  /* ---------- Toast ---------- */
+  var toastEl = $("#xjbToast");
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add("is-on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("is-on"); }, 2200);
+  }
+
+  /* ---------- 移动端导航 ---------- */
+  var burger = $("#xjbBurger");
+  var nav = $("#xjbNav");
+  burger.addEventListener("click", function(){
+    var open = nav.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  $$("#xjbNav a").forEach(function(a){
+    a.addEventListener("click", function(){
+      nav.classList.remove("is-open");
+      burger.setAttribute("aria-expanded","false");
+      $$("#xjbNav a").forEach(function(x){ x.classList.remove("is-active"); });
+      a.classList.add("is-active");
+    });
+  });
+
+  /* ---------- 搜索 ---------- */
+  var searchInput = $("#xjbSearchInput");
+  var searchHint = $("#xjbSearchHint");
+  var searchData = [
+    "长剧拉片室 · 年代剧的光",
+    "悬疑剧叙事结构拆解",
+    "剧评人沈昭访谈",
+    "剪辑师的十九次修剪",
+    "都市剧配角群像",
+    "社区影像墙 · 道具复刻",
+    "创作者认证计划",
+    "一镜到底创作挑战"
+  ];
+  function renderHint(kw){
+    var q = (kw||"").trim();
+    var list = q ? searchData.filter(function(s){ return s.indexOf(q) > -1; }) : searchData.slice(0,5);
+    if(!list.length){
+      searchHint.innerHTML = '<div style="padding:8px 10px;color:#98a2b3">未找到「'+q.replace(/[<>&]/g,"")+'」相关条目，试试其他关键词</div>';
+    }else{
+      searchHint.innerHTML = list.map(function(s){
+        return '<button type="button" data-kw="'+s.replace(/"/g,"")+'">'+s+'</button>';
+      }).join("") + '<div style="padding:8px 10px;color:#98a2b3;font-size:12px">按回车键搜索全部内容</div>';
+    }
+    searchHint.classList.add("is-open");
+  }
+  searchInput.addEventListener("input", function(){ renderHint(searchInput.value); });
+  searchInput.addEventListener("focus", function(){ renderHint(searchInput.value); });
+  searchInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      e.preventDefault();
+      var q = searchInput.value.trim();
+      if(!q){ toast("请输入剧集、剧评或创作者名称"); return; }
+      var hit = searchData.filter(function(s){ return s.indexOf(q) > -1; });
+      searchHint.classList.remove("is-open");
+      if(hit.length){
+        toast("找到 "+hit.length+" 条与「"+q+"」相关的内容");
+        var first = hit[0];
+        var target = $$("#xjbVideoList .xjb-vcard").filter(function(card){
+          return card.textContent.indexOf(q) > -1 || card.textContent.indexOf(first) > -1;
+        })[0];
+        if(target){
+          target.scrollIntoView({behavior:"smooth", block:"center"});
+          target.classList.add("xjb-highlight");
+          setTimeout(function(){ target.classList.remove("xjb-highlight"); }, 1800);
+        }else{
+          document.getElementById("xjb-hot").scrollIntoView({behavior:"smooth"});
+        }
+      }else{
+        toast("暂时没有匹配内容，可换一个关键词");
+      }
+    }
+  });
+  searchHint.addEventListener("click", function(e){
+    var btn = e.target.closest("button[data-kw]");
+    if(!btn) return;
+    searchInput.value = btn.getAttribute("data-kw");
+    searchInput.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",bubbles:true}));
+  });
+  document.addEventListener("click", function(e){
+    if(!e.target.closest(".xjb-search")) searchHint.classList.remove("is-open");
+  });
+  $("#xjbSearchBtn").addEventListener("click", function(){
+    searchInput.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",bubbles:true}));
+  });
+
+  /* ---------- 标签筛选 ---------- */
+  $$("#xjbTabs .xjb-tab").forEach(function(tab){
+    tab.addEventListener("click", function(){
+      $$("#xjbTabs .xjb-tab").forEach(function(t){ t.classList.remove("is-on"); });
+      tab.classList.add("is-on");
+      var cat = tab.getAttribute("data-tab");
+      var count = 0;
+      $$("#xjbVideoList .xjb-vcard").forEach(function(card){
+        var show = (cat === "all") || (card.getAttribute("data-cat") === cat);
+        card.style.display = show ? "" : "none";
+        if(show) count++;
+      });
+      toast(cat === "all" ? "已显示全部内容" : "筛选出 "+count+" 条「"+cat+"」内容");
+    });
+  });
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  $$("[data-like]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var on = btn.classList.toggle("is-like");
+      btn.classList.remove("pulse");
+      void btn.offsetWidth;
+      btn.classList.add("pulse");
+      toast(on ? "已点赞，感谢你的认可" : "已取消点赞");
+    });
+  });
+  $$("[data-fav]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var on = btn.classList.toggle("is-fav");
+      btn.classList.remove("pulse");
+      void btn.offsetWidth;
+      btn.classList.add("pulse");
+      toast(on ? "已加入收藏夹，稍后可在个人中心查看" : "已取消收藏");
+    });
+  });
+
+  /* ---------- 弹窗基础 ---------- */
+  var mask = $("#xjbModalMask");
+  var modalTitle = $("#xjbModalTitle");
+  var modalBody = $("#xjbModalBody");
+  function openModal(title, html){
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    mask.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal(){
+    mask.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+  $("#xjbModalClose").addEventListener("click", closeModal);
+  mask.addEventListener("click", function(e){ if(e.target === mask) closeModal(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeModal(); });
+
+  /* ---------- 作者弹窗 ---------- */
+  $$(".xjb-creator-more").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var parts = btn.getAttribute("data-author").split("|");
+      openModal(parts[0] + " · 创作者档案",
+        '<p style="margin-bottom:12px;color:#28313f;font-weight:700">'+parts[1]+'</p>'+
+        '<p>'+parts[2]+'</p>'+
+        '<p style="color:#6a7688;font-size:12.6px">'+parts[3]+'</p>'+
+        '<div class="xjb-share-row">'+
+          '<button type="button" onclick="document.querySelectorAll(\'.xjb-creator-more\').length&&window.__xjbFollow&&window.__xjbFollow()">关注创作者</button>'+
+          '<button type="button" onclick="window.__xjbCopy&&window.__xjbCopy()">复制主页链接</button>'+
+        '</div>');
+    });
+  });
+
+  /* ---------- 分享 / 复制 ---------- */
+  function shareHtml(){
+    return '<p>分享给同样在追剧的朋友，一起把细节聊透。</p>'+
+      '<div class="xjb-share-row">'+
+        '<button type="button" data-share="微信">微信好友</button>'+
+        '<button type="button" data-share="微博">微博</button>'+
+        '<button type="button" data-share="QQ">QQ</button>'+
+        '<button type="button" data-share="复制链接">复制链接</button>'+
+      '</div>';
+  }
+  window.__xjbCopy = function(){
+    var link = "https://xunjuba.example/creator";
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(link).then(function(){ toast("链接已复制到剪贴板"); }).catch(function(){ toast("请手动复制页面地址"); });
+    }else{
+      toast("请手动复制页面地址");
+    }
+    closeModal();
+  };
+  window.__xjbFollow = function(){
+    toast("已关注该创作者，更新将优先推送");
+    closeModal();
+  };
+  document.addEventListener("click", function(e){
+    var b = e.target.closest("[data-share]");
+    if(!b) return;
+    var type = b.getAttribute("data-share");
+    if(type === "复制链接"){
+      window.__xjbCopy();
+    }else{
+      toast("已唤起"+type+"分享面板（示意）");
+      closeModal();
+    }
+  });
+
+  // 给每个视频卡片的作者区补一个分享入口
+  $$("#xjbVideoList .xjb-vcard").forEach(function(card){
+    var acts = card.querySelector(".xjb-actions");
+    if(!acts) return;
+    var sh = document.createElement("button");
+    sh.className = "xjb-icon-btn";
+    sh.setAttribute("aria-label","分享");
+    sh.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.6 10.6l6.8-3.2M8.6 13.4l6.8 3.2"/></svg>';
+    sh.addEventListener("click", function(){ openModal("分享这支内容", shareHtml()); });
+    acts.appendChild(sh);
+  });
+
+  /* ---------- 订阅表单 ---------- */
+  $("#xjbContactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = $("#xjbEmail").value.trim();
+    if(!v){ toast("请先填写邮箱地址"); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ toast("邮箱格式好像不太对，请再确认一下"); return; }
+    toast("订阅成功，官方发布与企划通知会发送到你的邮箱");
+    $("#xjbEmail").value = "";
+  });
+
+  /* ---------- 回到顶部 ---------- */
+  var topBtn = $("#xjbTop");
+  window.addEventListener("scroll", function(){
+    if(window.scrollY > 480){ topBtn.classList.add("is-on"); }
+    else{ topBtn.classList.remove("is-on"); }
+  }, {passive:true});
+  topBtn.addEventListener("click", function(){
+    window.scrollTo({top:0, behavior:"smooth"});
+  });
+
+  /* ---------- 数字滚动 ---------- */
+  function animateCount(el){
+    var target = parseInt(el.getAttribute("data-count"), 10);
+    var duration = 1300;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.floor(target * eased);
+      el.textContent = val >= 10000 ? (val / 10000).toFixed(1).replace(/\.0$/,"") : val.toLocaleString("zh-CN");
+      if(target >= 10000 && el.nextElementSibling){ el.innerHTML = (val/10000).toFixed(1).replace(/\.0$/,"") + '<i>万+</i>'; }
+      else if(target >= 10000 && !el.nextElementSibling){ el.innerHTML = elapsedFormat(val); }
+      if(p < 1) requestAnimationFrame(step);
+      else{
+        if(target >= 10000){ el.innerHTML = (target/10000).toFixed(1).replace(/\.0$/,"") + '<i>万+</i>'; }
+        else if(target === 3260){ el.innerHTML = '3260<i>位</i>'; }
+        else{ el.textContent = target.toLocaleString("zh-CN"); }
+      }
+    }
+    function elapsedFormat(v){ return v.toLocaleString("zh-CN"); }
+    requestAnimationFrame(step);
+  }
+  var counted = false;
+  var statEls = $$(".xjb-stat b[data-count]");
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting && !counted){
+          counted = true;
+          statEls.forEach(animateCount);
+          io.disconnect();
+        }
+      });
+    }, {threshold:0.4});
+    if(statEls[0] && statEls[0].closest(".xjb-hero")) io.observe(statEls[0].closest(".xjb-hero"));
+  }else{
+    statEls.forEach(function(el){ el.textContent = el.getAttribute("data-count"); });
+  }
+
+  /* ---------- 锚点偏移（吸顶高度） ---------- */
+  $$('a[href^="#xjb-"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      var id = a.getAttribute("href").slice(1);
+      var target = document.getElementById(id);
+      if(!target) return;
+      e.preventDefault();
+      var sticky = document.querySelector(".xjb-sticky");
+      var offset = sticky ? sticky.offsetHeight : 0;
+      var y = target.getBoundingClientRect().top + window.pageYOffset - offset - 8;
+      window.scrollTo({top: Math.max(y,0), behavior:"smooth"});
+      history.replaceState(null, "", "#" + id);
+    });
+  });
+
+})();
+</script>
+</body>
+  </html>
